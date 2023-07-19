@@ -28,10 +28,10 @@ Build a table using `php` and `MySQL`. Data located in `devt4est.sql`
 ```
 docker compose up -d
 ```
-3. Navigate to `http://localhost/dev-test/phpTest/index.php` to the see output of the project.
+3. Navigate to `http://localhost/devtest/phpTest/index.php` to the see output of the project.
 
 ### XAMPP:
-1. Copy project into a folder called `dev-test` inside your `htdocs` folder.
+1. Copy project into a folder called `devtest` inside your `htdocs` folder.
 2. Open the project with an IDE and go to the `config.php` file.
 3. Change the line that has:
 ```php
@@ -41,5 +41,5 @@ to:
 ```php
 define("DB_HOST", "localhost");
 ```
-4. Navigate to `http://localhost/dev-test/phpTest/index.php` to the see output of the project.
+4. Navigate to `http://localhost/devtest/phpTest/index.php` to the see output of the project.
 
