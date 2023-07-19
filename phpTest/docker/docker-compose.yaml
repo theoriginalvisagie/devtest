@@ -1,0 +1,46 @@
+version: '3.7'
+
+services:
+  php82:
+    build:
+      context: ./php82
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 80:80
+    volumes:
+      - /Applications/XAMPP/htdocs:/var/www/html
+    networks: 
+      - dev-server
+
+  db:
+    image: mariadb:10.5.2
+    restart: always
+    volumes: 
+      - db-volume:/var/lib/mysql
+    environment:
+      TZ: "Africa/Johannesburg"
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    networks:
+      - dev-server
+    ports:
+      - 3306:3306
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      - 8081:80
+    environment:
+      PWA_HOST: "db"
+      PWA_USER: "root"
+      PWA_PASSWORD: ""
+      UPLOAD_LIMIT: "2048M"
+    networks:
+      - dev-server
+
+volumes:
+  db-volume:
+
+networks:
+  dev-server:

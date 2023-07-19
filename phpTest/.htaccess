@@ -1,0 +1,11 @@
+Options -Indexes
+
+RewriteEngine On
+
+# Allow access to index.php
+RewriteCond %{REQUEST_URI} !^/index\.php$
+
+# Redirect to index.php if accessing a file or directory directly
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.php [L]
